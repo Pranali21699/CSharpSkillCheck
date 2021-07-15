@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace ProblemTwo_CompilationError
 {
-    class Manager
+   public  class Manager:Employee
     {
         public List<Employee> DirectReports { get; set; }
         public string CostCode { get; set; }
 
-        public Manager(List<Employee> drEmployeesLst, string cCode) :base(eID, eName, eLevel, eDoJ)
+        public Manager( int eID,string eName,  int eLevel,DateTime eDoJ, List<Employee> drEmployeesLst,string cCode)
         {
+            this.EmpID = eID;
+            this.EmpName = eName;
+            this.EmpLevel = eLevel;
+            this.DateOfJoining = eDoJ;
             DirectReports = drEmployeesLst;
             CostCode = cCode;
 
@@ -22,6 +26,5 @@ namespace ProblemTwo_CompilationError
         {
             return DirectReports.Select(x => x.EmpName).ToList();
         }
-
     }
 }
